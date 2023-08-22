@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const daoSchema = new mongoose.Schema({
   address: String,
-  cid: String,
+  cid: Object,
   proposals: [Object],
   users: [String],
 });
