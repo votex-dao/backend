@@ -104,9 +104,7 @@ app.get("/user/:address", async (req, res) => {
         const daolist = []
         for(let d of user_.daolist){
             const dao_data = await dao.findOne({ address: d })
-            const extras = await(await fetch(`https://${dao_data.cid}.ipfs.cf-ipfs.com`)).json()
-            console.log(extras)
-            
+            const extras = dao_data.cid
             daolist.push({ ...extras, ...dao_data.toJSON()  })
         }
         
